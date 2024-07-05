@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css//trabajo.css">
+    <script>
+        function limpiar(){
+            document.getElementById("text").value = "";
+            document.getElementById("taxt").value = "";
+            document.getElementById("toxt").value = "";
+            document.getElementById("tuxt").value = "";
+            document.getElementById("precio").value = "";
+            document.getElementById("precia").value = "";
+        }
+
+        function calcular(){
+            var cantidad = parseInt(document.getElementById("cantidad").value);
+            var precioSoles = 0;
+            var precioDolares = 0;
+
+            var instrumento = document.getElementById("instrumento").value;
+            switch(instrumento){
+                case "bateria":
+                    precioSoles = cantidad * 1500;
+                    precioDolares = cantidad * 400;
+                    break;
+                case "bajo":
+                    precioSoles = cantidad * 1200;
+                    precioDolares = cantidad * 320;
+                    break;
+                case "Trompeta":
+                    precioSoles = cantidad * 800;
+                    precioDolares = cantidad * 210;
+                    break;
+                case "Teclado":
+                    precioSoles = cantidad * 2000;
+                    precioDolares = cantidad * 530;
+                    break;
+                case "Guitarra":
+                    precioSoles = cantidad * 1000;
+                    precioDolares = cantidad * 270;
+                    break;
+                default:
+                    precioSoles = 0;
+                    precioDolares = 0;
+                    break;
+            }
+
+            document.getElementById("precio").value = precioSoles;
+            document.getElementById("precia").value = precioDolares;
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="titulo" style="text-align:left;padding: 8px; width: 50%; border: 2px solid;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/musica-56e43.appspot.com/o/music.jpg?alt=media&token=0af4597f-1720-42a9-ba01-afbcbd53c137" alt="" width="100%">
+            </td>
+            <td style="text-align:right ; width: 50%; border: 2px solid;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/musica-56e43.appspot.com/o/musica.jpg?alt=media&token=560d5362-3118-4778-9a29-5895f1c3c4a1" alt="" width="100%">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; padding: 10px;font-size: 50px;">
+                <b>¡Descubre un mundo lleno de Música!</b>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; padding: 20px;">
+                <img src="https://firebasestorage.googleapis.com/v0/b/musica-56e43.appspot.com/o/guitarra.avif?alt=media&token=1de6d335-643d-488c-97ab-4d50bf723481" alt="Plano" style="max-width: 100%; height: auto;">
+            </td>
+            <td class="valor-predio" style="text-align: left; padding: 20px;font-size: 40px;">
+                <h3 style="border: 1px solid;">Instrumentos y sus Precios</h3>
+                <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td><input type="text" placeholder="Ingrese.." id="text"></td>
+                        <td>Ruc</td>
+                        <td>80939823452</td>
+                    </tr>
+                    <tr>
+                        <td>Apellidos:</td>
+                        <td><input type="text" placeholder="Ingrese.." id="taxt"></td>
+                        <td>Fecha:</td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td>DNI:</td>
+                        <td><input type="text" placeholder="Ingrese" id="toxt"></td>
+                        <td>Instrumento:</td>
+                        <td>
+                            <select id="instrumento" onchange="actualizarprecio()">
+                                <option value="bateria">Batería Acústica</option>
+                                <option value="bajo">Bajo</option>
+                                <option value="Trompeta">Trompeta</option>
+                                <option value="Teclado">Teclado</option>
+                                <option value="Guitarra">Guitarra</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cantidad:</td>
+                        <td><input type="number" placeholder="Selecciona" id="cantidad"></td>
+                        <td>Pago:</td>
+                        <td>
+                            <select id="pago" onchange="actualizarprecio()">
+                                <option value="Tarjeta">Tarjeta de crédito</option>
+                                <option value="Contado">A Contado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Marca:</td>
+                        <td>
+                            <select id="marca" onchange="actualizarprecio()">
+                                <option value="Yamaha">Yamaha</option>
+                                <option value="keyboard">keyboard</option>
+                                <option value="Sabian">Sabian</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Precio S/</td>
+                        <td><input type="text" id="precio" disabled></td>
+                        <td>Precio $</td>
+                        <td><input type="text" id="precia" disabled></td>
+                    </tr>      
+                    <tr>
+                        <td><button type="button" onclick="calcular()">Calcular</button></td>
+                        <td><button type="button" onclick="limpiar()">Limpiar</button></td>
+                        <td><button type="button" onclick="window.print()">Imprimir</button></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
